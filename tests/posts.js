@@ -1,7 +1,7 @@
 var assert = require('assert');
 
 suite('User Authorization', function() {
-  ltest('access granted for loggedin users', function(done, server, client) {
+  test('access granted for loggedin users', function(done, server, client) {
     server.eval(function() {
       Accounts.createUser({email: 'a@a.com', password: '123456'});
       emit('done');
@@ -29,7 +29,7 @@ suite('User Authorization', function() {
     });
   });
 
-  ltest('access denied for normal users', function(done, server, client) {
+  test('access denied for normal users', function(done, server, client) {
     client.eval(function() {
       Posts.find().observe({
         removed: function(doc) {
